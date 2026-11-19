@@ -1,0 +1,61 @@
+SESSION06
+[Phân tích] So sánh Trade-off các giải pháp ra lệnh cho Ứng dụng AI trong Học tập & Nghiên cứu
+
+Tên lớp: HCM K26 CNTT2
+Môn học: Kỹ năng PROMPTING với AI
+Họ và tên: LƯƠNG THANH THƯ
+
+BƯỚC 1: HAI PROMPT MẪU
+Giải pháp 1 (đơn giản, ngắn gọn)
+Bạn là gia sư. Hãy chấm bài giảng của sinh viên về khái niệm {khai_niem}
+theo Rubric {rubric}, cho điểm trên 10 và đặt 2 câu hỏi như học sinh lớp 6.
+Bài giảng: {bai_giang}
+
+Giải pháp 2 (chi tiết, nhiều ràng buộc)
+# VAI TRÒ
+Gia sư Feynman: vừa đóng học sinh lớp 6 tò mò, vừa là giám khảo công bằng.
+# DỮ LIỆU
+Khái niệm: {khai_niem} | Bài giảng: {bai_giang} | Rubric: {rubric}
+# QUY TẮC XỬ LÝ LỖI (kiểm tra theo thứ tự)
+1. Bài giảng trống hoặc dưới 20 từ: trả lời "Bài giảng quá ngắn, vui lòng viết lại" rồi dừng.
+2. Bài giảng lạc đề: trả lời "Lạc đề", chấm 0 điểm, giải thích 1 câu.
+3. Rubric trống: dùng mặc định (Đúng 4đ, Dễ hiểu 3đ, Có ví dụ 3đ) và nói rõ đã dùng mặc định.
+4. Tổng điểm Rubric khác 10: báo lỗi và dừng.
+5. Có câu sai kiến thức: trích câu sai và sửa lại. Nếu không chắc, ghi "Cần kiểm tra lại", không bịa.
+# ĐỊNH DẠNG ĐẦU RA (đúng thứ tự, không thêm gì khác)
+1. Bảng: Tiêu chí | Điểm | Lý do (1 câu)
+2. Tổng điểm x/10
+3. 2 câu hỏi ngây thơ
+4. 1 gợi ý cải thiện
+
+BƯỚC 2: BẢNG SO SÁNH TRADE-OFF
+Tiêu chí			Giải pháp 1 (Đơn giản)				Giải pháp 2 (Chi tiết)
+Độ dễ hiểu / dễ viết		Cao, viết trong 1 phút				Trung bình, phải suy nghĩ các trường hợp lỗi
+Tốn token			Ít						Nhiều hơn khoảng 5-6 lần
+Chặn lỗi biên (trống, lạc đề)	Trung bình, AI tự đoán nên dễ bịa điểm		Cực tốt, có điều kiện rõ ràng
+Độ ổn định của định dạng	Thấp, mỗi lần một kiểu				Cao, luôn theo cấu trúc cố định
+Dễ chấm hàng loạt		Khó, kết quả không đồng nhất			Dễ, copy thẳng vào bảng tính
+Dễ bảo trì			Dễ						Cần sửa nhiều chỗ khi đổi rubric
+
+BƯỚC 3: LỰA CHỌN VÀ CHẠY THỬ
+Chọn: Giải pháp 2. Lý do:
+Chấm bài là việc cần công bằng và lặp lại nhiều lần, nên cần kết quả ổn định.
+Dữ liệu sinh viên hay bị sai lệch (viết quá ngắn, lạc đề), nên phải chặn lỗi biên.
+Tốn thêm token là cái giá nhỏ so với việc chấm sai hoặc chấm bịa.
+
+Giải pháp 1 chỉ hợp khi tự học nhanh một lần và không cần độ chính xác cao.
+Chạy thử (kết quả mẫu mình chạy ở đây, bạn nên chạy lại trên AI của bạn và dán kết quả thật)
+Test 1: Bài giảng bình thường. Khái niệm: Token. Bài giảng: “Token là những mảnh nhỏ AI cắt câu ra để đọc, giống cắt bánh mì thành miếng. AI tính tiền và giới hạn độ dài theo số token.” Rubric để trống.
+
+Tiêu chí		Điểm		Lý do
+Đúng kiến thức		3/4		Đúng ý chính, thiếu ý token không luôn bằng một từ
+Dễ hiểu			3/3		Ví dụ bánh mì rất gần gũi
+Có ví dụ		1/3		Có ví dụ so sánh nhưng chưa có ví dụ cụ thể về một từ bị cắt
+
+Tổng điểm: 7/10 (đã dùng Rubric mặc định vì Rubric để trống).
+Câu hỏi ngây thơ: “Sao AI không đọc cả từ cho nhanh?” và “Tiếng Việt có tốn nhiều token hơn tiếng Anh không?”
+Gợi ý: thêm một ví dụ có con số, như “Xin chào” bị cắt thành 3 token.
+
+Test 2: Bẫy dữ liệu trống. Bài giảng: “Token là...”
+Giải pháp 2 trả lời: “Bài giảng quá ngắn, vui lòng viết lại.” và dừng.
+Giải pháp 1 thường vẫn chấm điểm dựa trên phỏng đoán, đây là điểm yếu bạn nên nêu trong báo cáo.
